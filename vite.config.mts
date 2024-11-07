@@ -28,7 +28,7 @@ export default defineConfig({
         name: 'vuetify-pwa',
         short_name: 'vuefy-pwa',
         description: 'vuetify-pwa-test',
-        theme_color: '#ffffff',
+        theme_color: '#3F51B5',
       },
 
       workbox: {
