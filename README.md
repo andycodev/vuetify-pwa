@@ -79,3 +79,64 @@ This project is built with [Vuetify](https://vuetifyjs.com/en/), a UI Library wi
 [MIT](http://opensource.org/licenses/MIT)
 
 Copyright (c) 2016-present Vuetify, LLC
+
+
+# Pass for a PWA in an existing project
+ 
+ 1. yarn add -D vite-plugin-pwa
+
+ 2. En el archivo vite.config.mts en el array en plugins agregar e importar:
+
+ import { VitePWA } from 'vite-plugin-pwa'
+
+ VitePWA({
+      registerType: 'prompt',
+      injectRegister: false,
+
+      pwaAssets: {
+        disabled: false,
+        config: true,
+      },
+
+      manifest: {
+        name: 'vuetify-pwa',
+        short_name: 'vuefy-pwa',
+        description: 'vuetify-pwa-test',
+        theme_color: '#ffffff',
+      },
+
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,svg,png,ico}'],
+        cleanupOutdatedCaches: true,
+        clientsClaim: true,
+      },
+
+      devOptions: {
+        enabled: false,
+        navigateFallback: 'index.html',
+        suppressWarnings: true,
+        type: 'module',
+      },
+    }),
+
+
+ 3. En public agregar un favicon.svg (Logo)
+
+ 4. @vite-pwa/assets-generator
+
+ 5. Agregar en el object scripts de package.json:
+ 
+    {
+        "scripts": {
+            "generate-pwa-assets": "pwa-assets-generator"
+        }
+    }
+
+ 6. yarn generate-pwa-assets
+
+ 7. Agregar en package.json este object:
+
+  "resolutions": {
+    "sharp": "0.32.6",
+    "sharp-ico": "0.1.5"
+  }
