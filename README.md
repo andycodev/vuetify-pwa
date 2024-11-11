@@ -156,3 +156,5 @@ Copyright (c) 2016-present Vuetify, LLC
     "sharp": "0.32.6",
     "sharp-ico": "0.1.5"
   }
+
+  #Update form branch icon-test
