@@ -122,9 +122,25 @@ Copyright (c) 2016-present Vuetify, LLC
 
  3. En public agregar un favicon.svg (Logo)
 
- 4. @vite-pwa/assets-generator
+ 4. crear en la raiz del proyecto el archivo "pwa-assets.config.ts" y pegar este código:
 
- 5. Agregar en el object scripts de package.json:
+  import {
+      defineConfig,
+      minimal2023Preset as preset,
+  } from '@vite-pwa/assets-generator/config'
+
+  export default defineConfig({
+      headLinkOptions: {
+          preset: '2023',
+      },
+      preset,
+      images: ['public/favicon.svg'],
+  })
+
+
+ 5. yarn add -D @vite-pwa/assets-generator
+
+ 6. Agregar en el object scripts de package.json:
  
     {
         "scripts": {
@@ -132,9 +148,9 @@ Copyright (c) 2016-present Vuetify, LLC
         }
     }
 
- 6. yarn generate-pwa-assets
+ 7. yarn generate-pwa-assets
 
- 7. Agregar en package.json este object:
+ 8. Agregar en package.json este object:
 
   "resolutions": {
     "sharp": "0.32.6",
