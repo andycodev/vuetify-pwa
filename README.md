@@ -148,13 +148,15 @@ Copyright (c) 2016-present Vuetify, LLC
         }
     }
 
- 7. yarn generate-pwa-assets
-
- 8. Agregar en package.json este object:
+ 7. Agregar en package.json este object:
 
   "resolutions": {
     "sharp": "0.32.6",
     "sharp-ico": "0.1.5"
   }
+
+ 8. yarn generate-pwa-assets
+
+ 
 
   #Update form branch icon-test
